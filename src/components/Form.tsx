@@ -1,3 +1,4 @@
+import "./form.css";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import FormInput from "./FormInput";
 
@@ -15,6 +16,7 @@ export interface InputAttributes {
   type: string;
   placeholder: string;
   label: string;
+  errorMessage: string;
 }
 
 const Form = () => {
@@ -25,7 +27,6 @@ const Form = () => {
     password: "",
     confirmPassword: "",
   });
-  // const usernameRef = useRef();
 
   console.log("re-rendered");
 
@@ -36,6 +37,7 @@ const Form = () => {
       type: "text",
       placeholder: "Username",
       label: "Username",
+      errorMessage: "",
     },
     {
       id: 2,
@@ -43,6 +45,7 @@ const Form = () => {
       type: "email",
       placeholder: "Email",
       label: "Email",
+      errorMessage: "",
     },
     {
       id: 3,
@@ -50,6 +53,7 @@ const Form = () => {
       type: "text",
       placeholder: "Birthday",
       label: "Birthday",
+      errorMessage: "",
     },
     {
       id: 4,
@@ -57,6 +61,7 @@ const Form = () => {
       type: "password",
       placeholder: "Password",
       label: "Password",
+      errorMessage: "",
     },
     {
       id: 5,
@@ -64,15 +69,12 @@ const Form = () => {
       type: "password",
       placeholder: "Confirm Password",
       label: "Confirm Password",
+      errorMessage: "",
     },
   ];
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // You can use either FormData or useRef instead of useState if you want to
-    // avoid re-rendering the component whenever you change/submit data
-    // const data = new FormData(event.currentTarget);
-    // console.log(Object.fromEntries(data));
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -86,6 +88,7 @@ const Form = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <h1>Resgister</h1>
         {inputs.map((input: InputAttributes) => (
           <FormInput
             key={input.id}

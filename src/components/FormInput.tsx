@@ -9,10 +9,11 @@ interface Props {
   label: string;
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  errorMessage: string;
 }
 
 const FormInput = (props: Props) => {
-  const { label, onChange, id, ...inputProps } = props;
+  const { label, errorMessage, onChange, id, ...inputProps } = props;
   return (
     <div className="formInput">
       <label>{props.label}</label>
@@ -20,6 +21,7 @@ const FormInput = (props: Props) => {
         {...inputProps}
         onChange={onChange}
       />
+      <span>{errorMessage}</span>
     </div>
   );
 };
