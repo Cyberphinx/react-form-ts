@@ -22,7 +22,7 @@ There are a number of ways to set state in the form:
 2. `useRef` If for some reason you don't want the component to re-render
    whenever the state changes, you can use `useRef` hook instead.
 
-3. `FormData` Alternatively you can pass the event.currenttarget into a new
+3. `FormData` Alternatively you can pass the event.currentTarget into a new
    FormData() to store the state of the form, without re=rendering the
    component:
 
