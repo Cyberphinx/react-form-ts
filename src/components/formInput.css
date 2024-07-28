@@ -23,6 +23,9 @@ span {
   display: none;
 }
 
-input:invalid ~ span {
+input:invalid[data-focused="true"] {
+  border: 1px solid red;
+}
+input:invalid[data-focused="true"] ~ span {
   display: block;
 }
