@@ -16,7 +16,9 @@ export interface InputAttributes {
   type: string;
   placeholder: string;
   label: string;
-  errorMessage: string;
+  errorMessage?: string;
+  pattern?: string;
+  required: boolean;
 }
 
 const Form = () => {
@@ -37,7 +39,10 @@ const Form = () => {
       type: "text",
       placeholder: "Username",
       label: "Username",
-      errorMessage: "",
+      errorMessage:
+        "Username should be 3-16 characters and shouldn't include any special character!",
+      pattern: "^[A-Za-z0-9]{3,16}$", // Use regex as a pattern for validation
+      required: true,
     },
     {
       id: 2,
@@ -45,15 +50,16 @@ const Form = () => {
       type: "email",
       placeholder: "Email",
       label: "Email",
-      errorMessage: "",
+      errorMessage: "It should be a valid email address!",
+      required: true,
     },
     {
       id: 3,
       name: "birthday",
-      type: "text",
+      type: "date",
       placeholder: "Birthday",
       label: "Birthday",
-      errorMessage: "",
+      required: false,
     },
     {
       id: 4,
@@ -61,7 +67,11 @@ const Form = () => {
       type: "password",
       placeholder: "Password",
       label: "Password",
-      errorMessage: "",
+      errorMessage:
+        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+      pattern:
+        "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$",
+      required: true,
     },
     {
       id: 5,
@@ -69,7 +79,9 @@ const Form = () => {
       type: "password",
       placeholder: "Confirm Password",
       label: "Confirm Password",
-      errorMessage: "",
+      errorMessage: "Password don't match!",
+      pattern: values.password,
+      required: true,
     },
   ];
 

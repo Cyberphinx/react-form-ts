@@ -9,7 +9,7 @@ interface Props {
   label: string;
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  errorMessage: string;
+  errorMessage?: string;
 }
 
 const FormInput = (props: Props) => {
