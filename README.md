@@ -15,9 +15,9 @@ In the project directory, you can run:
 
 There are a number of ways to set state in the form:
 
-1. `useState` `useState` causes the component to re-render each time the state
-   has changed, this is not necessarily a bad thing. In a small single module
-   component, it is absolutely fine to use `useState`
+1. `useState` causes the component to re-render each time the state has changed,
+   this is not necessarily a bad thing. In a small single module component, it
+   is absolutely fine to use `useState`
 
 2. `useRef` If for some reason you don't want the component to re-render
    whenever the state changes, you can use `useRef` hook instead.
